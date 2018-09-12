@@ -7,6 +7,7 @@ rjp=function(){}
 rjp.date=Date()
 rjp.double=(x)=>2*x
 
-setTimeout(function() {
+setTimeout(function(x) {
     console.log('hello RIchard');
+    return(x);
   }, 5000);
