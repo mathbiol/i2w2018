@@ -8,5 +8,5 @@ rjp.date=Date()
 rjp.double=(x)=>2*x
 
 setTimeout(function() {
-    console.log('hello');
+    console.log('hello RIchard');
   }, 1000);
