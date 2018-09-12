@@ -25,5 +25,7 @@ jonas.getSparcs=async (yr,q)=>{ // get sparcs data from year,query
 
 jonas.unzip=function(z){
     var x=z  // unzip will go here
+// example https://portal.gdc.cancer.gov/repository?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.case_id%22%2C%22value%22%3A%5B%223a3a8fe1-e35c-45d0-aa0b-4fefa9ee9183%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22files.data_category%22%2C%22value%22%3A%5B%22Transcriptome%20Profiling%22%5D%7D%7D%5D%7D&searchTableTab=files
+    
     return z 
 }
