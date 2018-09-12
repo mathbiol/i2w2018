@@ -9,4 +9,4 @@ rjp.double=(x)=>2*x
 
 setTimeout(function() {
     console.log('hello RIchard');
-  }, 1000);
+  }, 5000);
