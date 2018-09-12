@@ -22,3 +22,8 @@ jonas.getSparcs=async (yr,q)=>{ // get sparcs data from year,query
      var url=yrUrl[yr].url+'.json?'+q
      return (await fetch(url)).json()
 }
+
+jonas.unzip=function(z){
+    var x=z  // unzip will go here
+    return z 
+}
