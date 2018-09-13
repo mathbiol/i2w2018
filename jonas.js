@@ -29,3 +29,14 @@ jonas.unzip=function(z){
     
     return z 
 }
+
+jonas.loginGithub=function(){ // adds github login process
+
+}
+
+// ini
+window.onload=function(){
+    if(document.body.querySelector('#jonasDiv')){
+       jonas.div=document.body.querySelector('#jonasDiv')
+    }
+}
