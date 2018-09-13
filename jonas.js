@@ -31,12 +31,15 @@ jonas.unzip=function(z){
 }
 
 jonas.loginGithub=function(){ // adds github login process
-
+    debugger
 }
 
 // ini
 window.onload=function(){
     if(document.body.querySelector('#jonasDiv')){
        jonas.div=document.body.querySelector('#jonasDiv')
+       jonas.loginGithub()
+       //jonas.loginGoogle()
+       //jonas.loginBox()
     }
 }
