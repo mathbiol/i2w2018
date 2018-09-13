@@ -30,7 +30,7 @@ jonas.unzip=function(z){
     return z 
 }
 
-jonas.loginGithub=async function(div){ // adds github login process
+jonas.loginGithub=function(div){ // adds github login process
     var div = div||jonas.div // pick default div or the one provided
     if(div){
         // build login button
@@ -48,17 +48,21 @@ jonas.loginGithub=async function(div){ // adds github login process
             Error('redirect state does not match - are you a hacker? ')
         }
         var url = 'https://github.com/login/oauth/access_token?client_id='+localStorage.githubClientId+'&client_secret='+localStorage.githubClientKey+'&code='+parms.code+'&redirect_uri='+location.origin+location.pathname+'&state='+parms.state
-        (await fetch(url,{
+        alert('github wants a proxy! more at href="http://andreybleme.com/2018-02-24/oauth-github-web-flow-cors-problem, that explains when they require secrets')
+        /*
+        fetch(
+          url,
+          {
             method: 'POST',
             mode: 'no-cors',
             headers: {
                 Accept: 'application/json'
             }
-        })).json().then(tk=>{
+          }).json().then(tk=>{
                 lala=tk
                 debugger
             })
-        //debugger
+        */
     }
 
     //debugger
