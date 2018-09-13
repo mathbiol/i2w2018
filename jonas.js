@@ -30,7 +30,24 @@ jonas.unzip=function(z){
     return z 
 }
 
-jonas.loginGithub=function(){ // adds github login process
+jonas.loginGithub=function(div){ // adds github login process
+    var div = div||jonas.div // pick default div or the one provided
+    if(div){
+        // build login button
+        div.innerHTML='<button id="githubLoginButton">Login Github</button> ...'
+        githubLoginButton.onclick=jonas.doLoginGithub
+    }else{
+        console.log('no div where to assemble the login button, starting programatically')
+        jonas.doLoginGithub()
+    }
+    //debugger
+}
+
+jonas.doLoginGithub=function(){
+    // cpnfigured at https://github.com/settings/developers
+    var clientId='42f472114e5af4f9fbd3'
+    // following flow at https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow
+    
     debugger
 }
 
