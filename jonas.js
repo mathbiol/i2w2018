@@ -47,8 +47,8 @@ jonas.doLoginGithub=function(){
     // cpnfigured at https://github.com/settings/developers
     var clientId='42f472114e5af4f9fbd3'
     // following flow at https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow
-    
-    debugger
+    location.href="https://github.com/login/oauth/authorize?client_id=42f472114e5af4f9fbd3&redirect_uri="+location.href
+    //debugger
 }
 
 // ini
