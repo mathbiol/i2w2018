@@ -1,1 +1,1 @@
-console.log('bill needs a vacation');
+console.log('bill needs vacations');
