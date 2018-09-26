@@ -30,11 +30,24 @@ jonas.unzip=function(z){
     return z 
 }
 
+jonas.getSearchParms=function(){
+    var parms={}
+    location.search.slice(1)
+            .split('&')
+            .map(q=>{
+                return q.split('=')
+            }).forEach(av=>{
+                parms[av[0]]=av[1]
+            })
+    return parms
+
+}
+
 jonas.loginGithub=function(div){ // adds github login process
     var div = div||jonas.div // pick default div or the one provided
     if(div){
         // build login button
-        div.innerHTML='<button id="githubLoginButton">Login Github</button> <a href="'+location.origin+location.pathname+'">reset</a>'
+        div.innerHTML+='<div><button id="githubLoginButton">Login Github</button> <a href="'+location.origin+location.pathname+'">reset</a></div>'
         githubLoginButton.onclick=jonas.doLoginGithub
     }else{
         console.log('no div where to assemble the login button, starting programatically')
@@ -78,25 +91,34 @@ jonas.doLoginGithub=function(){
     //debugger
 }
 
-jonas.getSearchParms=function(){
-    var parms={}
-    location.search.slice(1)
-            .split('&')
-            .map(q=>{
-                return q.split('=')
-            }).forEach(av=>{
-                parms[av[0]]=av[1]
-            })
-    return parms
-
+jonas.loginGoogle=function(div){ // adds Google login process
+    var div = div||jonas.div // pick default div or the one provided
+    if(div){
+        // build login button
+        div.innerHTML+='<div><button id="googleLoginButton">Login Google</button> <a href="'+location.origin+location.pathname+'">reset</a></div>'
+        googleLoginButton.onclick=jonas.doLoginGoogle
+    }else{
+        console.log('no div where to assemble the login button, starting programatically')
+        jonas.doLoginGoogle()
+    }
+    // redirected from oauth
+    var parms = jonas.getSearchParms()
+    if(parms.code){
+        debugger
+    }
+    
 }
+
+jonas.doLoginGoogle=function(){}
+
+
 
 // ini
 window.onload=function(){
     if(document.body.querySelector('#jonasDiv')){
        jonas.div=document.body.querySelector('#jonasDiv')
        jonas.loginGithub()
-       //jonas.loginGoogle()
+       jonas.loginGoogle()
        //jonas.loginBox()
        // Stony Brook: https://sbm-it.github.io/msdn/oauth2.html
     }
