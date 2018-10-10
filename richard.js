@@ -11,6 +11,25 @@ richard.unzip = function(z){
 }
 
 
+richard.learnLinear = async function(div){
+    //var div = div||richard.div // pick default div or the one provided
+    const model = tf.sequential();
+    model.add(tf.layers.dense({units : 1,
+                               inputShape: [1]}
+                             )
+             );
+    model.compile({
+      loss: 'meanSquaredError',
+      optimizer: 'sgd'
+      });
+    const xs = tf.tensor2d([1, 2, 3, 4, 5],[5,1]);
+    const ys = tf.tensor2d([1, 2, 3, 4, 5],[5,1]);
+    await model.fit(xs, ys, {epochs:500});
+    var result = model.predict(tf.tensor2d([1],[1,1]))
+    document.getElementById(div).innerHTML+=result
+    console.log('... end of ts')
+  }
+
 richard.getSearchParms=function(){
     var parms={}
     location.search.slice(1)
