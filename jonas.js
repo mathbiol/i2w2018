@@ -98,6 +98,7 @@ jonas.loginGoogle=function(div){ // adds Google login process
         div.innerHTML+='<div><button id="googleLoginButton">Login Google</button> <a href="'+location.origin+location.pathname+'">reset</a></div>'
         googleLoginButton.onclick=jonas.doLoginGoogle
     }else{
+
         console.log('no div where to assemble the login button, starting programatically')
         jonas.doLoginGoogle()
     }
@@ -119,6 +120,7 @@ window.onload=function(){
        jonas.div=document.body.querySelector('#jonasDiv')
        jonas.loginGithub()
        jonas.loginGoogle()
+       document.body.querySelector('#githubLoginButton').onclick=jonas.doLoginGithub
        //jonas.loginBox()
        // Stony Brook: https://sbm-it.github.io/msdn/oauth2.html
     }
