@@ -11,3 +11,35 @@ richard Oauth:
 <hr>
 jonas Oauth:
 <div id="jonasDiv" class="container"></div>
+
+
+<script src = "richard.js"></script>
+<script src = "https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<script src="https://togetherjs.com/togetherjs-min.js"></script>
+<button onclick="TogetherJS(this); return false;">Start TogetherJS</button>
+
+
+<div id=div1></div>
+
+<script> 
+  let url = 'https://api.gdc.cancer.gov/projects'
+  let body = ({
+  'fields': "disease_type,name,program.name,project_id,summary.case_count",
+  'from': 0,
+  'size': 10
+  })
+  let projectData = betterFetch(url,body)
+</script>
+
+<script>
+  projectData.then(function(response) {
+    let caseCounts = getCaseCounts(response)
+    let plotData = {
+    labels: caseCounts.map(x=>x["label"]),
+    values: caseCounts.map(x=>x["y"]),
+    type: 'pie',
+    }
+  Plotly.newPlot(div1, [plotData]);
+  });
+</script>
